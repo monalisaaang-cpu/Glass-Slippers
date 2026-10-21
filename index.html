@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Glass Slippers: considered fashion, iconic handbags and statement shoes for the moments that matter.">
+  <meta name="theme-color" content="#fff8f1">
+  <title>Glass Slippers | The Occasion Edit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff8f1;
+      --white: #fffefd;
+      --ink: #292323;
+      --muted: #766a68;
+      --rose: #a45f75;
+      --blush: #ead0d2;
+      --sand: #e8d8c7;
+      --line: #e8ddd5;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+      --content: 1440px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.6; }
+    body.locked { overflow: hidden; }
+    button, input, select { font: inherit; }
+    button, a, select { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    :focus-visible { outline: 2px solid var(--rose); outline-offset: 4px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    .announcement { padding: 8px 16px; background: var(--ink); color: white; text-align: center; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+    .site-header { position: sticky; top: 0; z-index: 20; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; padding: 15px 5.5%; background: rgba(255, 248, 241, .96); border-bottom: 1px solid var(--line); backdrop-filter: blur(12px); }
+    .logo { width: max-content; font-family: var(--serif); font-size: 29px; font-weight: 600; letter-spacing: 2px; line-height: .9; }
+    .logo small { display: block; padding-top: 7px; color: var(--rose); font-family: var(--sans); font-size: 8px; font-weight: 600; letter-spacing: 1.65px; text-align: center; }
+    .main-nav { display: flex; align-items: center; justify-content: center; gap: clamp(13px, 2vw, 28px); }
+    .main-nav a { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap; }
+    .main-nav a:hover, .footer-links a:hover { color: var(--rose); }
+    .bag-button, .button { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 9px; padding: 11px 19px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 10px; font-weight: 600; letter-spacing: 1px; text-align: center; text-transform: uppercase; transition: background .2s, border-color .2s, color .2s; }
+    .bag-button { justify-self: end; white-space: nowrap; }
+    .bag-button:hover, .button:hover { border-color: var(--rose); background: var(--rose); }
+    .button-light { border-color: var(--ink); background: transparent; color: var(--ink); }
+    .button-light:hover { background: var(--ink); color: white; }
+    .text-button { padding: 0 0 4px; border: 0; border-bottom: 1px solid var(--rose); background: none; color: var(--rose); font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+
+    .hero { display: grid; min-height: 570px; grid-template-columns: .93fr 1.07fr; background: var(--blush); }
+    .hero-copy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 66px max(8%, calc((100vw - var(--content)) / 2)); padding-right: 7%; }
+    .eyebrow { margin: 0 0 15px; color: var(--rose); font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.04; }
+    h1 { max-width: 570px; margin-bottom: 0; font-size: clamp(54px, 6.4vw, 88px); }
+    .hero-description { max-width: 390px; margin: 19px 0 25px; font-size: 13px; }
+    .hero-signoff { margin: 18px 0 0; font-family: var(--serif); font-size: 20px; font-style: italic; }
+    .hero-image { min-height: 570px; overflow: hidden; background: #d6bcb0; }
+    .hero-image img { width: 100%; height: 100%; min-height: 570px; object-fit: cover; object-position: center 38%; }
+
+    .section { padding: 76px 6%; }
+    .section-inner { width: min(100%, var(--content)); margin: 0 auto; }
+    .section-heading { margin: 0 auto 35px; text-align: center; }
+    .section-heading .eyebrow { margin-bottom: 8px; }
+    h2 { margin-bottom: 0; font-size: clamp(38px, 4vw, 55px); }
+    .section-heading > p:last-child { margin: 11px 0 0; color: var(--muted); font-size: 12px; }
+    .collections { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .collection { min-width: 0; background: var(--white); }
+    .collection-image { display: block; overflow: hidden; background: var(--sand); }
+    .collection-image img { width: 100%; height: 360px; object-fit: cover; transition: transform .55s; }
+    .collection:hover .collection-image img { transform: scale(1.035); }
+    .collection-copy { padding: 18px 18px 21px; text-align: center; }
+    .collection-copy h3 { margin: 0; font-size: 28px; }
+    .collection-copy p { margin: 7px 0 13px; color: var(--muted); font-size: 11px; }
+
+    .shop-section { background: var(--white); }
+    .shop-tools { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 25px; }
+    .filter-tabs { display: flex; flex-wrap: wrap; gap: 7px; }
+    .filter-button { min-height: 38px; padding: 8px 14px; border: 1px solid var(--line); background: transparent; font-size: 10px; font-weight: 600; letter-spacing: .6px; }
+    .filter-button[aria-pressed="true"], .filter-button:hover { border-color: var(--ink); background: var(--ink); color: white; }
+    .shop-controls { display: flex; gap: 9px; }
+    .shop-controls input, .shop-controls select, .form-control { min-height: 42px; padding: 9px 11px; border: 1px solid var(--line); border-radius: 0; background: white; color: var(--ink); }
+    .shop-controls input { width: min(230px, 35vw); }
+    .shop-controls select { min-width: 145px; }
+    .products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+    .product-card { min-width: 0; border: 1px solid var(--line); background: var(--paper); }
+    .product-visual { position: relative; overflow: hidden; background: #f0e5dd; }
+    .product-visual img { width: 100%; height: 295px; object-fit: cover; transition: transform .45s; }
+    .product-card:hover .product-visual img { transform: scale(1.04); }
+    .product-badge { position: absolute; top: 11px; left: 11px; padding: 5px 8px; background: var(--paper); font-size: 8px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+    .product-info { padding: 15px; }
+    .product-info h3 { margin: 0; font-size: 25px; }
+    .product-category { margin: 5px 0; color: var(--muted); font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+    .product-price { margin: 8px 0 11px; font-size: 12px; font-weight: 600; }
+    .product-info select { width: 100%; min-height: 38px; margin-bottom: 9px; padding: 7px; border: 1px solid var(--line); background: white; }
+    .product-info .button { width: 100%; min-height: 40px; }
+    .no-results { grid-column: 1 / -1; padding: 45px 15px; color: var(--muted); text-align: center; }
+
+    .promo { padding: 54px 6%; background: var(--blush); text-align: center; }
+    .promo h2 { font-size: clamp(37px, 4vw, 52px); }
+    .promo p { max-width: 570px; margin: 13px auto 20px; font-size: 12px; }
+    .story { background: var(--paper); text-align: center; }
+    .story-copy { max-width: 700px; margin: 0 auto; }
+    .story-copy > p:not(.eyebrow) { margin: 17px 0 0; color: var(--muted); font-size: 13px; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 39px; text-align: left; }
+    .service-item { padding: 19px 0; border-top: 1px solid var(--sand); }
+    .service-mark { color: var(--rose); font-family: var(--serif); font-size: 27px; }
+    .service-item h3 { margin: 7px 0; font-size: 24px; }
+    .service-item p { margin: 0; color: var(--muted); font-size: 11px; }
+    .newsletter { background: #f1e3df; text-align: center; }
+    .newsletter-form { display: flex; max-width: 475px; gap: 8px; margin: 22px auto 0; }
+    .newsletter-form input { min-width: 0; min-height: 46px; flex: 1; padding: 11px; border: 1px solid #d9c5bd; background: var(--white); }
+    .form-feedback { min-height: 20px; margin: 10px 0 0; color: var(--rose); font-size: 11px; }
+
+    .site-footer { padding: 49px 6% 20px; background: var(--ink); color: white; }
+    .footer-inner { width: min(100%, var(--content)); margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+    .footer-brand { font-family: var(--serif); font-size: 30px; letter-spacing: 2px; }
+    .footer-grid p, .footer-grid a { color: #dfd3d0; font-size: 11px; }
+    .footer-grid p { max-width: 340px; margin: 12px 0; }
+    .footer-grid h3 { margin-bottom: 11px; font-size: 23px; }
+    .footer-links a { display: block; margin: 7px 0; }
+    .copyright { margin-top: 32px; padding-top: 17px; border-top: 1px solid #514747; color: #c9bbbb; font-size: 9px; }
+
+    .overlay { position: fixed; inset: 0; z-index: 40; background: rgba(25, 15, 18, .48); opacity: 0; visibility: hidden; transition: opacity .22s, visibility .22s; }
+    .overlay.open { opacity: 1; visibility: visible; }
+    .cart-drawer { position: fixed; z-index: 41; top: 0; right: 0; width: min(430px, 100%); height: 100%; padding: 22px; overflow-y: auto; background: var(--paper); transform: translateX(102%); transition: transform .28s ease; }
+    .cart-drawer.open { transform: translateX(0); }
+    .drawer-heading, .modal-heading { display: flex; align-items: center; justify-content: space-between; padding-bottom: 15px; border-bottom: 1px solid var(--sand); }
+    .drawer-heading h2, .modal-heading h2 { font-size: 35px; }
+    .icon-button { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid transparent; background: transparent; font-size: 26px; line-height: 1; }
+    .icon-button:hover { border-color: var(--line); }
+    .cart-list { min-height: 100px; }
+    .cart-item { display: grid; grid-template-columns: 70px 1fr auto; align-items: start; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--sand); }
+    .cart-item img { width: 70px; height: 84px; object-fit: cover; }
+    .cart-item h3 { margin: 0; font-size: 21px; }
+    .cart-item p { margin: 3px 0; font-size: 10px; }
+    .cart-remove { padding: 0; border: 0; background: none; color: var(--rose); font-size: 10px; text-decoration: underline; }
+    .quantity-control { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+    .quantity-control button { width: 26px; height: 26px; border: 1px solid var(--sand); background: white; }
+    .quantity-control span { min-width: 14px; text-align: center; font-size: 11px; }
+    .empty-cart { padding: 35px 0; color: var(--muted); text-align: center; }
+    .cart-summary { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--sand); }
+    .summary-line { display: flex; justify-content: space-between; gap: 14px; margin: 9px 0; font-size: 12px; }
+    .cart-summary .button { width: 100%; margin-top: 13px; }
+    .shipping-note { margin: 9px 0 0; color: var(--muted); font-size: 10px; text-align: center; }
+
+    .modal-backdrop { position: fixed; inset: 0; z-index: 50; display: none; align-items: center; justify-content: center; padding: 18px; overflow-y: auto; background: rgba(25, 15, 18, .58); }
+    .modal-backdrop.open { display: flex; }
+    .modal { width: min(610px, 100%); max-height: 92vh; padding: 24px; overflow-y: auto; background: var(--paper); }
+    .checkout-form { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 18px; }
+    .checkout-form label { display: block; margin-bottom: 4px; font-size: 10px; font-weight: 600; }
+    .checkout-form .form-control { width: 100%; }
+    .checkout-form .full { grid-column: 1 / -1; }
+    .checkout-form .button { width: 100%; }
+    .checkout-note { margin: 12px 0 0; color: var(--muted); font-size: 10px; }
+    .checkout-status { margin: 12px 0 0; color: var(--rose); font-size: 12px; }
+    .success-view { padding: 30px 0 8px; text-align: center; }
+    .success-view h3 { margin: 0 0 10px; font-size: 34px; }
+    .success-view p { color: var(--muted); font-size: 12px; }
+
+    @media (max-width: 980px) {
+      .site-header { grid-template-columns: 1fr auto; row-gap: 12px; }
+      .main-nav { grid-column: 1 / -1; grid-row: 2; justify-content: center; }
+      .hero-copy { padding-left: 7%; }
+      .products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      html { scroll-padding-top: 135px; }
+      .announcement { font-size: 8px; letter-spacing: 1.3px; }
+      .site-header { padding: 12px 5%; }
+      .logo { font-size: 24px; }
+      .logo small { font-size: 7px; }
+      .main-nav { justify-content: flex-start; gap: 16px; overflow-x: auto; padding: 2px 0 4px; }
+      .main-nav a { font-size: 9px; }
+      .bag-button { min-height: 40px; padding: 8px 12px; font-size: 9px; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { min-height: 420px; padding: 48px 7%; }
+      h1 { font-size: clamp(55px, 14vw, 76px); }
+      .hero-image, .hero-image img { min-height: 390px; max-height: 470px; }
+      .section { padding: 55px 5%; }
+      .collections { grid-template-columns: 1fr; gap: 18px; }
+      .collection-image img { height: 330px; }
+      .shop-tools { align-items: stretch; flex-direction: column; }
+      .shop-controls { display: grid; grid-template-columns: 1fr 1fr; }
+      .shop-controls input, .shop-controls select { width: 100%; min-width: 0; }
+      .products { gap: 10px; }
+      .product-visual img { height: clamp(190px, 58vw, 290px); }
+      .product-info { padding: 11px; }
+      .product-info h3 { font-size: 22px; }
+      .product-info .button { padding: 8px; font-size: 9px; }
+      .service-grid { grid-template-columns: 1fr; gap: 8px; }
+      .newsletter-form { flex-direction: column; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .footer-grid > :first-child { grid-column: 1 / -1; }
+      .checkout-form { grid-template-columns: 1fr; }
+      .checkout-form .full { grid-column: auto; }
+      .modal { padding: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="announcement">Welcome to Glass Slippers · Luxury made for your moment</div>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="Glass Slippers home">GLASS SLIPPERS<small>THE PERFECT FIT FOR YOUR BIG IDEAS</small></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#collections">Collections</a>
+      <a href="#shop" data-category-link="Clothing">Clothing</a>
+      <a href="#shop" data-category-link="Handbags">Handbags</a>
+      <a href="#shop" data-category-link="Shoes">Shoes</a>
+      <a href="#story">Our story</a>
+    </nav>
+    <button class="bag-button" id="open-cart" type="button" aria-label="Open shopping bag, 0 items">♡ Bag (<span id="cart-count">0</span>)</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A world of elevated style</p>
+        <h1 id="hero-title">Your moment.<br>Your style.<br>Your entrance.</h1>
+        <p class="hero-description">Discover considered fashion, iconic handbags and statement shoes for life's most unforgettable occasions.</p>
+        <a class="button" href="#shop">Discover the collection</a>
+        <p class="hero-signoff">The perfect fit for your big ideas.</p>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&amp;fit=crop&amp;w=1500&amp;q=85" alt="Fashion editorial in an elegant evening look" fetchpriority="high">
+      </div>
+    </section>
+
+    <section class="section" id="collections" aria-labelledby="collections-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">Curated for you</p>
+          <h2 id="collections-title">Shop the collections</h2>
+          <p>Beautifully selected pieces for your most memorable moments.</p>
+        </div>
+        <div class="collections">
+          <article class="collection">
+            <a class="collection-image" href="#shop" data-category-link="Clothing" aria-label="Shop the fashion edit">
+              <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Elegant occasion dress" loading="lazy">
+            </a>
+            <div class="collection-copy"><h3>The fashion edit</h3><p>Statement looks. Unforgettable entrances.</p><a class="text-button" href="#shop" data-category-link="Clothing">Shop clothing</a></div>
+          </article>
+          <article class="collection">
+            <a class="collection-image" href="#shop" data-category-link="Handbags" aria-label="Shop iconic handbags">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Structured leather handbag" loading="lazy">
+            </a>
+            <div class="collection-copy"><h3>Iconic handbags</h3><p>Accessories that speak without a word.</p><a class="text-button" href="#shop" data-category-link="Handbags">Shop handbags</a></div>
+          </article>
+          <article class="collection">
+            <a class="collection-image" href="#shop" data-category-link="Shoes" aria-label="Shop the shoe lounge">
+              <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&amp;fit=crop&amp;w=900&amp;q=80" alt="Elegant women's heels" loading="lazy">
+            </a>
+            <div class="collection-copy"><h3>The shoe lounge</h3><p>Every step deserves a little glamour.</p><a class="text-button" href="#shop" data-category-link="Shoes">Shop shoes</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shop-section" id="shop" aria-labelledby="shop-title">
+      <div class="section-inner">
+        <div class="section-heading">
+          <p class="eyebrow">The Glass Slippers boutique</p>
+          <h2 id="shop-title">Find your perfect fit</h2>
+          <p>Considered pieces, made for the moments that matter.</p>
+        </div>
+        <div class="shop-tools">
+          <div class="filter-tabs" role="group" aria-label="Filter products by category">
+            <button class="filter-button" type="button" data-filter="All" aria-pressed="true">All pieces</button>
+            <button class="filter-button" type="button" data-filter="Clothing" aria-pressed="false">Clothing</button>
+            <button class="filter-button" type="button" data-filter="Handbags" aria-pressed="false">Handbags</button>
+            <button class="filter-button" type="button" data-filter="Shoes" aria-pressed="false">Shoes</button>
+            <button class="filter-button" type="button" data-filter="Gifts" aria-pressed="false">Gifts</button>
+          </div>
+          <div class="shop-controls">
+            <label class="sr-only" for="product-search">Search the collection</label>
+            <input id="product-search" type="search" placeholder="Search the collection">
+            <label class="sr-only" for="product-sort">Sort products</label>
+            <select id="product-sort">
+              <option value="featured">Featured</option>
+              <option value="price-ascending">Price: low to high</option>
+              <option value="price-descending">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </div>
+        </div>
+        <div class="products" id="product-grid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="promo" id="gifts" aria-labelledby="gift-title">
+      <p class="eyebrow">A little something unforgettable</p>
+      <h2 id="gift-title">Give her a moment of her own.</h2>
+      <p>Thoughtful finishing touches, selected for the people who make every occasion brighter.</p>
+      <button class="button button-light" type="button" data-filter="Gifts" data-scroll-shop>Explore gifts</button>
+    </section>
+
+    <section class="section story" id="story" aria-labelledby="story-title">
+      <div class="section-inner">
+        <div class="story-copy">
+          <p class="eyebrow">A point of view, always</p>
+          <h2 id="story-title">Style should feel like you.</h2>
+          <p>Glass Slippers is an edit for the woman who knows that getting dressed can be its own kind of arrival. We bring together expressive pieces, enduring details and a little bit of occasion, so the way you show up feels entirely your own.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-item"><span class="service-mark" aria-hidden="true">01</span><h3>Considered edit</h3><p>Distinctive pieces chosen for their character, craft and staying power.</p></article>
+          <article class="service-item"><span class="service-mark" aria-hidden="true">02</span><h3>Thoughtful delivery</h3><p>Complimentary standard shipping on orders over $300.</p></article>
+          <article class="service-item"><span class="service-mark" aria-hidden="true">03</span><h3>Here to help</h3><p>Questions about fit or gifting? Our boutique team is happy to help.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section newsletter" id="contact" aria-labelledby="newsletter-title">
+      <div class="section-inner">
+        <p class="eyebrow">Notes from the boutique</p>
+        <h2 id="newsletter-title">A little style in your inbox.</h2>
+        <p>New arrivals, occasion dressing and considered inspiration.</p>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="sr-only" for="newsletter-email">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required>
+          <button class="button" type="submit">Sign me up</button>
+        </form>
+        <p class="form-feedback" id="newsletter-feedback" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div><a class="footer-brand" href="#home">GLASS SLIPPERS</a><p>Luxury made for your moment. The perfect fit for your big ideas.</p></div>
+        <div class="footer-links"><h3>Explore</h3><a href="#collections">Collections</a><a href="#shop">Shop all</a><a href="#shop" data-filter="Gifts" data-scroll-shop>Gifts</a></div>
+        <div class="footer-links"><h3>Visit us</h3><a href="mailto:hello@glassslippers.example">hello@glassslippers.example</a><a href="#contact">Customer care</a><a href="#story">Our story</a></div>
+      </div>
+      <div class="copyright">© <span id="current-year"></span> Glass Slippers. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true" tabindex="-1">
+    <div class="drawer-heading"><h2 id="cart-title">Your bag <span id="drawer-count">(0)</span></h2><button class="icon-button" id="close-cart" type="button" aria-label="Close shopping bag">×</button></div>
+    <div class="cart-list" id="cart-items" aria-live="polite"></div>
+    <div class="cart-summary" id="cart-summary"></div>
+  </aside>
+
+  <div class="modal-backdrop" id="checkout-modal" role="presentation">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+      <div class="modal-heading"><h2 id="checkout-title">Almost yours</h2><button class="icon-button" id="close-checkout" type="button" aria-label="Close checkout">×</button></div>
+      <form class="checkout-form" id="checkout-form">
+        <div><label for="first-name">First name</label><input class="form-control" id="first-name" name="firstName" autocomplete="given-name" required></div>
+        <div><label for="last-name">Last name</label><input class="form-control" id="last-name" name="lastName" autocomplete="family-name" required></div>
+        <div class="full"><label for="checkout-email">Email address</label><input class="form-control" id="checkout-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="full"><label for="address">Street address</label><input class="form-control" id="address" name="address" autocomplete="street-address" required></div>
+        <div><label for="city">City</label><input class="form-control" id="city" name="city" autocomplete="address-level2" required></div>
+        <div><label for="postal-code">Postal code</label><input class="form-control" id="postal-code" name="postalCode" autocomplete="postal-code" required></div>
+        <div class="full"><button class="button" type="submit">Place demo order</button></div>
+      </form>
+      <p class="checkout-note">Demo checkout only. No payment is collected and no order is sent.</p>
+      <p class="checkout-status" id="checkout-status" aria-live="polite"></p>
+    </section>
+  </div>
+
+  <script>
+    const products = [
+      { id: 'silk-dress', name: 'The Marais Silk Dress', category: 'Clothing', price: 285, badge: 'Bestseller', image: 'photo-1595777457583-95e059d581b8', alt: 'Silk occasion dress', variants: ['XS', 'S', 'M', 'L'] },
+      { id: 'evening-gown', name: 'The Celeste Gown', category: 'Clothing', price: 420, badge: 'New season', image: 'photo-1566174053879-31528523f8ae', alt: 'Elegant evening gown', variants: ['XS', 'S', 'M', 'L'] },
+      { id: 'tailored-blazer', name: 'The Atelier Blazer', category: 'Clothing', price: 310, badge: '', image: 'photo-1591047139829-d91aecb6caea', alt: 'Tailored fashion jacket', variants: ['XS', 'S', 'M', 'L'] },
+      { id: 'satin-clutch', name: 'The Solene Clutch', category: 'Handbags', price: 195, badge: 'Bestseller', image: 'photo-1584917865442-de89df76afd3', alt: 'Small structured evening handbag', variants: ['One size'] },
+      { id: 'leather-tote', name: 'The Sunday Tote', category: 'Handbags', price: 345, badge: 'New season', image: 'photo-1590874103328-eac38a683ce7', alt: 'Leather everyday tote bag', variants: ['One size'] },
+      { id: 'mini-bag', name: 'The Petit Amour Bag', category: 'Handbags', price: 265, badge: '', image: 'photo-1548036328-c9fa89d128fa', alt: 'Compact statement handbag', variants: ['One size'] },
+      { id: 'slingback', name: 'The Margot Slingback', category: 'Shoes', price: 240, badge: 'Bestseller', image: 'photo-1543163521-1bf539c55dd2', alt: 'Elegant slingback heels', variants: ['36', '37', '38', '39', '40'] },
+      { id: 'evening-heel', name: 'The Noelle Heel', category: 'Shoes', price: 295, badge: 'New season', image: 'photo-1515347619252-60a4bf4fff4f', alt: 'Statement evening heels', variants: ['36', '37', '38', '39', '40'] },
+      { id: 'silk-scarf', name: 'The Keepsake Silk Scarf', category: 'Gifts', price: 95, badge: 'Gift edit', image: 'photo-1601924994987-69e26d50dc26', alt: 'Printed silk accessory', variants: ['One size'] },
+      { id: 'gift-card', name: 'The Glass Slippers Gift Card', category: 'Gifts', price: 150, badge: 'Gift edit', image: 'photo-1513201099705-a9746e1e201f', alt: 'Thoughtfully wrapped gift', variants: ['$150', '$250', '$500'], variantPrices: { '$150': 150, '$250': 250, '$500': 500 } }
+    ];
+    const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+    const grid = document.querySelector('#product-grid');
+    const searchInput = document.querySelector('#product-search');
+    const sortSelect = document.querySelector('#product-sort');
+    const cart = new Map();
+    let activeCategory = 'All';
+    let previouslyFocused = null;
+
+    function imageUrl(photo, width = 720) {
+      return `https://images.unsplash.com/${photo}?auto=format&fit=crop&w=${width}&q=82`;
+    }
+
+    function renderProducts() {
+      const search = searchInput.value.trim().toLowerCase();
+      let visible = products.filter(product => {
+        const categoryMatch = activeCategory === 'All' || product.category === activeCategory;
+        const searchMatch = `${product.name} ${product.category}`.toLowerCase().includes(search);
+        return categoryMatch && searchMatch;
+      });
+      if (sortSelect.value === 'price-ascending') visible.sort((a, b) => a.price - b.price);
+      if (sortSelect.value === 'price-descending') visible.sort((a, b) => b.price - a.price);
+      if (sortSelect.value === 'name') visible.sort((a, b) => a.name.localeCompare(b.name));
+      if (!visible.length) {
+        grid.innerHTML = '<p class="no-results">No pieces match that search. Try another name or category.</p>';
+        return;
+      }
+      grid.innerHTML = visible.map(product => `
+        <article class="product-card" data-product="${product.id}">
+          <div class="product-visual">
+            <img src="${imageUrl(product.image)}" alt="${product.alt}" loading="lazy">
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+          </div>
+          <div class="product-info">
+            <p class="product-category">${product.category}</p>
+            <h3>${product.name}</h3>
+            <p class="product-price">${money.format(product.price)}</p>
+            <label class="sr-only" for="variant-${product.id}">Choose ${product.category === 'Shoes' ? 'shoe size' : product.category === 'Clothing' ? 'clothing size' : 'option'} for ${product.name}</label>
+            <select id="variant-${product.id}" data-variant="${product.id}">${product.variants.map(variant => `<option value="${variant}">${variant}</option>`).join('')}</select>
+            <button class="button" type="button" data-add="${product.id}">Add to bag</button>
+          </div>
+        </article>`).join('');
+    }
+
+    function setCategory(category) {
+      activeCategory = category;
+      document.querySelectorAll('[data-filter]').forEach(button => {
+        if (button.matches('.filter-button')) button.setAttribute('aria-pressed', String(button.dataset.filter === category));
+      });
+      renderProducts();
+    }
+
+    function readSavedCart() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('glass-slippers-cart') || '[]');
+        if (Array.isArray(saved)) saved.forEach(item => {
+          if (products.some(product => product.id === item.id) && Number.isInteger(item.quantity) && item.quantity > 0) {
+            cart.set(`${item.id}:${item.variant}`, { ...item });
+          }
+        });
+      } catch {
+        localStorage.removeItem('glass-slippers-cart');
+      }
+    }
+
+    function saveCart() {
+      try { localStorage.setItem('glass-slippers-cart', JSON.stringify([...cart.values()])); } catch { /* Storage may be unavailable in private browsing. */ }
+    }
+
+    function updateCart() {
+      const count = [...cart.values()].reduce((sum, item) => sum + item.quantity, 0);
+      const subtotal = [...cart.values()].reduce((sum, item) => sum + item.price * item.quantity, 0);
+      document.querySelector('#cart-count').textContent = count;
+      document.querySelector('#open-cart').setAttribute('aria-label', `Open shopping bag, ${count} ${count === 1 ? 'item' : 'items'}`);
+      document.querySelector('#drawer-count').textContent = `(${count})`;
+      const list = document.querySelector('#cart-items');
+      const summary = document.querySelector('#cart-summary');
+      if (!count) {
+        list.innerHTML = '<p class="empty-cart">Your bag is waiting for something lovely.</p>';
+        summary.innerHTML = '';
+        return;
+      }
+      list.innerHTML = [...cart.entries()].map(([key, item]) => {
+        const product = products.find(entry => entry.id === item.id);
+        return `<article class="cart-item">
+          <img src="${imageUrl(product.image, 220)}" alt="${product.alt}">
+          <div><h3>${product.name}</h3><p>${item.variant} · ${money.format(item.price)}</p>
+            <div class="quantity-control" aria-label="Quantity for ${product.name}">
+              <button type="button" data-quantity="${key}" data-change="-1" aria-label="Decrease quantity">−</button>
+              <span>${item.quantity}</span>
+              <button type="button" data-quantity="${key}" data-change="1" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <button class="cart-remove" type="button" data-remove="${key}">Remove</button>
+        </article>`;
+      }).join('');
+      const shipping = subtotal >= 300 ? 0 : 12;
+      summary.innerHTML = `<div class="summary-line"><span>Subtotal</span><strong>${money.format(subtotal)}</strong></div>
+        <div class="summary-line"><span>Shipping</span><strong>${shipping ? money.format(shipping) : 'Complimentary'}</strong></div>
+        <div class="summary-line"><span>Estimated total</span><strong>${money.format(subtotal + shipping)}</strong></div>
+        <button class="button" id="checkout-button" type="button">Continue to checkout</button>
+        <p class="shipping-note">${subtotal >= 300 ? 'Complimentary shipping applied.' : `${money.format(300 - subtotal)} away from complimentary shipping.`} Taxes calculated at checkout.</p>`;
+    }
+
+    function openCart() {
+      previouslyFocused = document.activeElement;
+      document.querySelector('#cart-overlay').classList.add('open');
+      document.querySelector('#cart-drawer').classList.add('open');
+      document.querySelector('#cart-drawer').setAttribute('aria-hidden', 'false');
+      document.body.classList.add('locked');
+      document.querySelector('#close-cart').focus();
+    }
+
+    function closeCart() {
+      document.querySelector('#cart-overlay').classList.remove('open');
+      document.querySelector('#cart-drawer').classList.remove('open');
+      document.querySelector('#cart-drawer').setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('locked');
+      if (previouslyFocused instanceof HTMLElement) previouslyFocused.focus();
+    }
+
+    function openCheckout() {
+      closeCart();
+      const modal = document.querySelector('#checkout-modal');
+      modal.classList.add('open');
+      document.body.classList.add('locked');
+      document.querySelector('.success-view')?.remove();
+      document.querySelector('#checkout-status').textContent = '';
+      document.querySelector('#checkout-form').hidden = false;
+      document.querySelector('#checkout-form button[type="submit"]').focus();
+    }
+
+    function closeCheckout() {
+      document.querySelector('#checkout-modal').classList.remove('open');
+      document.body.classList.remove('locked');
+      document.querySelector('#open-cart').focus();
+    }
+
+    grid.addEventListener('click', event => {
+      const button = event.target.closest('[data-add]');
+      if (!button) return;
+      const product = products.find(entry => entry.id === button.dataset.add);
+      const variant = document.querySelector(`[data-variant="${product.id}"]`).value;
+      const key = `${product.id}:${variant}`;
+      const existing = cart.get(key);
+      cart.set(key, { id: product.id, variant, price: product.variantPrices?.[variant] ?? product.price, quantity: (existing?.quantity || 0) + 1 });
+      saveCart();
+      updateCart();
+      button.textContent = 'Added to bag';
+      window.setTimeout(() => { if (button.isConnected) button.textContent = 'Add to bag'; }, 1100);
+    });
+
+    document.querySelector('#cart-items').addEventListener('click', event => {
+      const removeButton = event.target.closest('[data-remove]');
+      if (removeButton) cart.delete(removeButton.dataset.remove);
+      const quantityButton = event.target.closest('[data-quantity]');
+      if (quantityButton) {
+        const key = quantityButton.dataset.quantity;
+        const item = cart.get(key);
+        item.quantity += Number(quantityButton.dataset.change);
+        if (item.quantity < 1) cart.delete(key);
+      }
+      saveCart();
+      updateCart();
+    });
+
+    document.querySelectorAll('.filter-button').forEach(button => button.addEventListener('click', () => setCategory(button.dataset.filter)));
+    document.querySelectorAll('[data-category-link]').forEach(link => link.addEventListener('click', () => setCategory(link.dataset.categoryLink)));
+    document.querySelectorAll('[data-scroll-shop]').forEach(link => link.addEventListener('click', () => {
+      setCategory(link.dataset.filter);
+      document.querySelector('#shop').scrollIntoView({ behavior: 'smooth' });
+    }));
+    searchInput.addEventListener('input', renderProducts);
+    sortSelect.addEventListener('change', renderProducts);
+    document.querySelector('#open-cart').addEventListener('click', openCart);
+    document.querySelector('#close-cart').addEventListener('click', closeCart);
+    document.querySelector('#cart-overlay').addEventListener('click', closeCart);
+    document.querySelector('#cart-summary').addEventListener('click', event => {
+      if (event.target.closest('#checkout-button')) openCheckout();
+    });
+    document.querySelector('#close-checkout').addEventListener('click', closeCheckout);
+    document.querySelector('#checkout-modal').addEventListener('click', event => {
+      if (event.target.id === 'checkout-modal') closeCheckout();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        if (document.querySelector('#checkout-modal').classList.contains('open')) closeCheckout();
+        else if (document.querySelector('#cart-drawer').classList.contains('open')) closeCart();
+      }
+    });
+
+    document.querySelector('#checkout-form').addEventListener('submit', event => {
+      event.preventDefault();
+      if (!event.currentTarget.reportValidity()) return;
+      const firstName = new FormData(event.currentTarget).get('firstName');
+      cart.clear();
+      saveCart();
+      updateCart();
+      event.currentTarget.hidden = true;
+      document.querySelector('#checkout-status').textContent = '';
+      const success = document.createElement('div');
+      success.className = 'success-view';
+      success.innerHTML = `<h3>Thank you, ${String(firstName).replace(/[&<>"']/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[character])}.</h3><p>Your demo order is complete. No payment was collected.</p><button class="button" type="button" id="continue-shopping">Continue browsing</button>`;
+      document.querySelector('.modal').append(success);
+      success.querySelector('#continue-shopping').addEventListener('click', () => {
+        success.remove();
+        closeCheckout();
+        document.querySelector('#shop').scrollIntoView({ behavior: 'smooth' });
+      }, { once: true });
+    });
+
+    document.querySelector('#newsletter-form').addEventListener('submit', event => {
+      event.preventDefault();
+      document.querySelector('#newsletter-feedback').textContent = 'You are on the list. Look out for a note from the boutique.';
+      event.currentTarget.reset();
+    });
+
+    document.querySelector('#current-year').textContent = new Date().getFullYear();
+    readSavedCart();
+    renderProducts();
+    updateCart();
+  </script>
+</body>
+</html>
